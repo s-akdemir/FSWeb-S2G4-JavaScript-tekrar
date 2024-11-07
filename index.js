@@ -68,6 +68,7 @@ console.log(CemberinCevresi(5));
 function CemberinAlani(cemberinYaricapi, pi) {
   return pi * Math.pow(cemberinYaricapi, 2);
 }
+console.log(CemberinAlani(15,pi));
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -100,28 +101,67 @@ let ucetambolunenler,
 
 // 3a çözümü
 
-/* kodlar buraya */
+enbuyuk = 0;
+for (let i = 0; i < sayilar.length; i++){
+  if(sayilar[i] > enbuyuk){
+    enbuyuk = sayilar[i];
+  }
+}
 
+enkucuk = enbuyuk;
+for (let i = 0; i < sayilar.length; i++){
+  if (sayilar[i] < enkucuk) {
+    enkucuk = sayilar[i];
+  }
+}
+console.log(enbuyuk);
+console.log(enkucuk);
 // 3b çözümü:
 
-/* kodlar buraya */
+ucetambolunenler = [];
+sayilar.forEach((sayi) => { 
+  if (sayi % 3 === 0){
+    ucetambolunenler.push(sayi);
+  } })
+  console.log(ucetambolunenler);
 
 // 3c çözümü:
 
-/* kodlar buraya */
+ucebolunenlerintoplami = ucetambolunenler.reduce((total, value) => {return total + value});
+console.log(ucebolunenlerintoplami);
 
 // 3d çözümü
 
-/* kodlar buraya */
+besyuzdenkucuksayilar = [];
+besyuzdenkucuksayilar.push(sayilar.filter((sayi) => {return sayi < 500}));
+console.log(besyuzdenkucuksayilar);
 
 // 3e çözümü
 
-/* kodlar buraya */
+besyuzdenkucuksayilar.sort((a,b) => a-b);
+siralisayilar = [...besyuzdenkucuksayilar];
+console.log(siralisayilar);
 
 // 3f çözümü
+sayilar.sort((a,b) => a-b);
+let sayac = 1;
+tekraredensayilar = [];
+const sayiFrekans = {};
 
-/* kodlar buraya */
+for (let i = 0; i <sayilar.length; i++){
+  if (sayilar[i] === sayilar[i+1]){
+    sayac++;
+    sayiFrekans[sayilar[i]] = sayac;
+  } else if (sayilar[i] !== sayilar[i+1]){
+    sayac = 1;
+  }
+}
+for (let sayi in sayiFrekans){
+  tekraredensayilar.push(`${sayi} sayısı ${sayiFrekans[sayi]} kere tekrar edilmiştir`)
+}
+console.log(tekraredensayilar);
 
+console.log(sayilar.length);
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
 function sa() {
